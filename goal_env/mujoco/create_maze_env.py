@@ -128,10 +128,15 @@ class GoalWrapper(Wrapper):
         observation = self.env.reset(self.goal)
 
         # random start a position without collision
-        if self.random_start:
+        if self.random_start == 1:
             xy = self.reset_space.sample()
             while (self.env._is_in_collision(xy)):
                 xy = self.reset_space.sample()
+            self.env.wrapped_env.set_xy(xy)
+            observation = self.env._get_obs()
+        elif self.random_start == 2:
+            xy = np.array([2, 0]) * self.maze_size_scaling
+            assert not self.env._is_in_collision(xy)
             self.env.wrapped_env.set_xy(xy)
             observation = self.env._get_obs()
 

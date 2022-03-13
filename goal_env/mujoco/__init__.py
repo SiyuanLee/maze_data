@@ -18,7 +18,7 @@ else:
 robots = ['Point', 'Ant', 'Swimmer']
 task_types = ['Maze', 'Maze1', 'Push', 'Fall', 'Block', 'BlockMaze']
 all_name = [x + y for x in robots for y in task_types]
-random_start = True
+random_start = args.random_start
 
 if args.image:
     top_down = True

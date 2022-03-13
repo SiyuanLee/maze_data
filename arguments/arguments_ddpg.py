@@ -108,6 +108,7 @@ def get_args_ant():
     parser.add_argument("--eval", type=bool, default=False)
     parser.add_argument('--eval_interval', type=int, default=50, help="every n episodes to eval once")
     parser.add_argument("--image", type=bool, default=False, help='use image input')
+    parser.add_argument('--random_start', type=int, default=1, help='1: random in the upper row; 2: lower corner; 0: farthest point')
 
     args = parser.parse_args()
     return args
